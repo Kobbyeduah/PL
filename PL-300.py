@@ -805,15 +805,34 @@ def display_question(question_number):
         unsafe_allow_html=True
     )
 
-    # Display question with border
+    # Custom CSS for styling
+    st.markdown(
+        """
+        <style>
+        .question-container {
+            border: 2px solid #4CAF50;
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 10px 0px;
+        }
+        .streamlit-container {
+            margin-top: 50px;
+        }
+        </style>
+        """, 
+        unsafe_allow_html=True
+    )
+
+    # Display question with border and background
     st.markdown(f"""<div class="question-container">
                     <h4>Question {question_number} of {total_questions}</h4>
                     {question_data['question']}
                     </div>""", 
                 unsafe_allow_html=True)
 
-    # Display answer options
-    selected_option = st.radio("Choose your answer:", question_data["options"])
+    # Options for answers
+    selected_option = st.radio("Choose your answer:", question_data["options"], key=f"option_{question_number}")
 
     # Submit button to check answer
     if st.button("Submit"):
@@ -823,21 +842,20 @@ def display_question(question_number):
             st.error(f"Incorrect. The correct answer is: {question_data['correct_answer']}")
         st.markdown(question_data["explanation"])
 
-    # Navigation buttons for previous and next questions
-    col1, col2, col3 = st.columns([1, 1, 1])
+    # Display progress
+    st.progress(question_number / total_questions)
 
+    # Navigation buttons for previous and next questions
+    col1, col2 = st.columns(2)
     with col1:
         if question_number > 1:
-            if st.button("Previous Question"):
+            if st.button("Previous"):
                 st.session_state["question_number"] = question_number - 1
 
     with col2:
         if question_number < total_questions:
-            if st.button("Next Question"):
+            if st.button("Next"):
                 st.session_state["question_number"] = question_number + 1
-
-    with col3:
-        st.write(f"Progress: {question_number}/{total_questions}")
 
 # Initialize question number in session state
 if "question_number" not in st.session_state:
