@@ -1,7 +1,7 @@
 import streamlit as st
 
 # Total number of questions
-total_questions = 10
+total_questions = 47
 
 # Function to display the question, options, and navigation
 def display_question(question_number):
@@ -58,6 +58,40 @@ def display_question(question_number):
         },
         4: {
             "question": """
+                Why is it advised to avoid the NULL values in the numeric column?
+            """,
+            "options": [
+                "A. DAX expression having SUM function on such data will provide incorrect results",
+                "B. DAX expression having MAX function on such data will provide incorrect results",
+                "C. DAX expression having an AVERAGE function on such data will provide incorrect results",
+                "D. DAX Expressions can’t be applied if a numeric column has one or multiple NULL values",
+                "E. All the above"
+            ],
+            "correct_answer": "C. DAX expression having an AVERAGE function on such data will provide incorrect results",
+            "explanation": """
+                **Explanation:** The AVERAGE function calculates the average by considering the total and dividing that by the number of non-null values.
+            """,
+            "reference": "https://docs.microsoft.com/en-us/learn/modules/clean-data-power-bi/2-shape-data"
+        },
+        5: {
+            "question": """
+                After you pivot the columns, the table appears as shown below with an error in the 3rd row. How would you fix this error? The solution needs to preserve all the data.
+            """,
+            "options": [
+                "A. For the key column, use 'Duplicate Values'",
+                "B. Rename column3",
+                "C. Use 'Remove Errors' for Column3",
+                "D. Modify the Data Type of the Value Column",
+                "E. Change the Aggregate Value Function of the Pivot"
+            ],
+            "correct_answer": "E. Change the Aggregate Value Function of the Pivot",
+            "explanation": """
+                **Explanation:** While using the Pivot feature, the aggregate value functions should be correctly set to preserve all values.
+            """,
+            "reference": "https://databear.com/power-bi-pivot-and-unpivot-columns/"
+        },
+        6: {
+            "question": """
                 Which of the following DAX functions would return a date that is the last day of the month before or after a specified number of months?
             """,
             "options": [
@@ -72,40 +106,6 @@ def display_question(question_number):
                 **Explanation:** The EOMONTH function returns the last day of the month that is the indicated number of months before or after the start date.
             """,
             "reference": "https://docs.microsoft.com/en-us/dax/eomonth-function-dax"
-        },
-        5: {
-            "question": """
-                You have two columns in your table, each representing sales amounts in two different currencies. You want to calculate the difference between the two columns and then show the absolute value of the result. Which DAX function would you use to accomplish this?
-            """,
-            "options": [
-                "A. ABS",
-                "B. SUM",
-                "C. MAX",
-                "D. AVERAGE",
-                "E. DIVIDE"
-            ],
-            "correct_answer": "A. ABS",
-            "explanation": """
-                **Explanation:** The ABS function returns the absolute value of a number, converting negative values to positive.
-            """,
-            "reference": "https://docs.microsoft.com/en-us/dax/abs-function-dax"
-        },
-        6: {
-            "question": """
-                You have a table named 'Sales' with columns 'ProductID', 'Date', and 'SalesAmount'. You want to create a new column in Power BI to show the cumulative total of 'SalesAmount'. Which DAX function would be most appropriate for this task?
-            """,
-            "options": [
-                "A. TOTALYTD",
-                "B. CALCULATE",
-                "C. SUMX",
-                "D. SUMMARIZE",
-                "E. CUMULATIVE"
-            ],
-            "correct_answer": "A. TOTALYTD",
-            "explanation": """
-                **Explanation:** TOTALYTD calculates the year-to-date value of the specified expression, which is ideal for cumulative totals.
-            """,
-            "reference": "https://docs.microsoft.com/en-us/dax/totalytd-function-dax"
         },
         7: {
             "question": """
@@ -174,7 +174,7 @@ def display_question(question_number):
                 **Explanation:** Power BI custom visuals can be developed using JavaScript libraries like D3.js for advanced and interactive visualizations.
             """,
             "reference": "https://docs.microsoft.com/en-us/power-bi/developer/custom-visual-develop"
-        }
+        },
     }
 
     # Get the current question data
