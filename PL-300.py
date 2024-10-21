@@ -790,35 +790,32 @@ def display_question(question_number):
     # Display progress bar
     st.progress(question_number / total_questions)
 
-    # Custom CSS for question border
-    
-    st.markdown(
-    """
-    <style>
-    .question-container {
-        border: 2px solid #4CAF50;
-        padding: 20px;
-        border-radius: 10px;
-        margin-bottom: 20px;
-        max-width: 100%;  /* Limits the width to prevent overflow */
-        box-sizing: border-box; /* Includes padding and border in the element's total width */
-        overflow-x: hidden; /* Hides horizontal overflow */
-    }
-    .stRadio > label {
-        display: block;
-        color: #4CAF50; /* Sets the text color for options */
-        margin: 10px 0; /* Adds space around each option */
-    }
-    .css-1y0tads { /* Targets the container of the radio buttons to adjust width */
-        max-width: 100%; /* Ensures the container does not exceed the viewport width */
-    }
-    </style>
-    """, 
-    unsafe_allow_html=True
-    )
-    
 
-    # Display question with border and background
+    # Display custom CSS for styling
+    st.markdown(
+        """
+        <style>
+        .question-container {
+            border: 2px solid #4CAF50;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            background-color: #f4f4f4; /* Light grey background */
+        }
+        .stRadio > label {
+            display: block;
+            color: #4CAF50; /* Green text for options */
+            margin: 10px 0;
+        }
+        .css-1y0tads { /* Streamlit's internal class for layout correction */
+            max-width: 100%;
+        }
+        </style>
+        """, 
+        unsafe_allow_html=True
+    )
+
+    # Display question with styled container
     st.markdown(f"""<div class="question-container">
                     <h4>Question {question_number} of {total_questions}</h4>
                     {question_data['question']}
@@ -832,24 +829,24 @@ def display_question(question_number):
     if st.button("Submit"):
         if selected_option == question_data["correct_answer"]:
             st.success("Correct answer!")
+            st.markdown(question_data["explanation"])
         else:
             st.error(f"Incorrect. The correct answer is: {question_data['correct_answer']}")
-        st.markdown(question_data["explanation"])
-
-    # Display progress
-    st.progress(question_number / total_questions)
 
     # Navigation buttons for previous and next questions
     col1, col2 = st.columns(2)
     with col1:
         if question_number > 1:
-            if st.button("Previous"):
-                st.session_state["question_number"] = question_number - 1
+            if st.button("Previous Question"):
+                st.session_state["question_number"] -= 1
 
     with col2:
         if question_number < total_questions:
-            if st.button("Next"):
-                st.session_state["question_number"] = question_number + 1
+            if st.button("Next Question"):
+                st.session_state["question_number"] += 1
+
+    # Display progress
+    st.progress(question_number / total_questions)
 
 # Initialize question number in session state
 if "question_number" not in st.session_state:
