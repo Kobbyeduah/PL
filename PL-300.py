@@ -787,12 +787,35 @@ def display_question(question_number):
     # Get the current question data
     question_data = questions.get(question_number, {"question": "Question not found", "options": [], "correct_answer": ""})
 
-    # Display question and options
-    st.markdown(f"### Question {question_number} of {total_questions}")
-    st.markdown(question_data["question"])
+    # Display progress bar
+    st.progress(question_number / total_questions)
+
+    # Custom CSS for question border
+    st.markdown(
+        """
+        <style>
+        .question-container {
+            border: 2px solid #4CAF50;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        </style>
+        """, 
+        unsafe_allow_html=True
+    )
+
+    # Display question with border
+    st.markdown(f"""<div class="question-container">
+                    <h4>Question {question_number} of {total_questions}</h4>
+                    {question_data['question']}
+                    </div>""", 
+                unsafe_allow_html=True)
+
+    # Display answer options
     selected_option = st.radio("Choose your answer:", question_data["options"])
 
-    # Navigation buttons
+    # Submit button to check answer
     if st.button("Submit"):
         if selected_option == question_data["correct_answer"]:
             st.success("Correct answer!")
@@ -801,7 +824,7 @@ def display_question(question_number):
         st.markdown(question_data["explanation"])
 
     # Navigation buttons for previous and next questions
-    col1, col2 = st.columns([1, 1])
+    col1, col2, col3 = st.columns([1, 1, 1])
 
     with col1:
         if question_number > 1:
@@ -812,6 +835,9 @@ def display_question(question_number):
         if question_number < total_questions:
             if st.button("Next Question"):
                 st.session_state["question_number"] = question_number + 1
+
+    with col3:
+        st.write(f"Progress: {question_number}/{total_questions}")
 
 # Initialize question number in session state
 if "question_number" not in st.session_state:
