@@ -785,13 +785,12 @@ def display_question(question_number):
     }
 
     # Get the current question data
-    question_data = questions.get(question_number, {"question": "Question not found", "options": [], "correct_answer": ""})
+    question_data = questions.get(question_number, {"question": "Question not found", "options": [], "correct_answer": "", "explanation": ""})
 
     # Display progress bar
     st.progress(question_number / total_questions)
 
-
-    # Display custom CSS for styling
+    # Custom CSS for question border
     st.markdown(
         """
         <style>
@@ -800,14 +799,16 @@ def display_question(question_number):
             padding: 20px;
             border-radius: 10px;
             margin-bottom: 20px;
-            background-color: #f4f4f4; /* Light grey background */
+            max-width: 100%;
+            box-sizing: border-box;
+            overflow-x: hidden;
         }
         .stRadio > label {
             display: block;
-            color: #4CAF50; /* Green text for options */
+            color: #4CAF50;
             margin: 10px 0;
         }
-        .css-1y0tads { /* Streamlit's internal class for layout correction */
+        .css-1y0tads {
             max-width: 100%;
         }
         </style>
@@ -815,14 +816,14 @@ def display_question(question_number):
         unsafe_allow_html=True
     )
 
-    # Display question with styled container
+    # Display question with border and background
     st.markdown(f"""<div class="question-container">
                     <h4>Question {question_number} of {total_questions}</h4>
                     {question_data['question']}
                     </div>""", 
                 unsafe_allow_html=True)
 
-    # Options for answers
+    # Display options for answers
     selected_option = st.radio("Choose your answer:", question_data["options"], key=f"option_{question_number}")
 
     # Submit button to check answer
@@ -832,21 +833,18 @@ def display_question(question_number):
             st.markdown(question_data["explanation"])
         else:
             st.error(f"Incorrect. The correct answer is: {question_data['correct_answer']}")
+            st.markdown(question_data["explanation"])
 
     # Navigation buttons for previous and next questions
-    col1, col2 = st.columns(2)
+    col1, col2 = st.columns([1, 1])
     with col1:
         if question_number > 1:
             if st.button("Previous Question"):
-                st.session_state["question_number"] -= 1
-
+                st.session_state["question_number"] = question_number - 1
     with col2:
         if question_number < total_questions:
             if st.button("Next Question"):
-                st.session_state["question_number"] += 1
-
-    # Display progress
-    st.progress(question_number / total_questions)
+                st.session_state["question_number"] = question_number + 1
 
 # Initialize question number in session state
 if "question_number" not in st.session_state:
