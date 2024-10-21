@@ -10,7 +10,9 @@ def display_question(question_number):
     questions = {
         1: {
             "question": """
-                You need to import 45 Excel files to Power BI Desktop. All these files are in a unique desktop local folder and share the same structure. You want to import all these Excel files into a single table. Which of the following would help you in achieving the goal?
+            You need to import 45 Excel files to Power BI Desktop.All these files are in a unique desktop local folder and 
+            share the same structure. You want to import all these Excel files into a single table. 
+            Which of the following would help you in achieving the goal?
             """,
             "options": [
                 "A. Adding the folder data source; using the Append Queries command",
