@@ -1,4 +1,5 @@
 import streamlit as st
+import html
 
 # Total number of questions
 total_questions = 47
@@ -790,37 +791,63 @@ def display_question(question_number):
     # Display progress bar
     st.progress(question_number / total_questions)
 
-    # Custom CSS for question border
     st.markdown(
-        """
-        <style>
-        .question-container {
-            border: 2px solid #4CAF50;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            max-width: 100%;
-            box-sizing: border-box;
-            overflow-x: hidden;
-        }
-        .stRadio > label {
-            display: block;
-            color: #4CAF50;
-            margin: 10px 0;
-        }
-        .css-1y0tads {
-            max-width: 100%;
-        }
-        </style>
-        """, 
-        unsafe_allow_html=True
+    """
+    <style>
+    /* Background color for the entire page */
+    body {
+        background-color: #f4f4f2;
+    }
+    
+    /* Container that holds all content, including questions */
+    .reportview-container .main .block-container{
+        max-width: 1000px;
+        padding-top: 5rem;
+        padding-right: 2rem;
+        padding-left: 2rem;
+        padding-bottom: 5rem;
+    }
+    
+    /* Ensure that content does not overflow horizontally */
+    .question-container {
+        border: 3px solid #4CAF50;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        max-width: 800px;  /* Set a max width to prevent horizontal scrolling */
+        width: 100%;  /* Ensure the container takes the full available width */
+        box-sizing: border-box;  /* Include padding and border in the width calculation */
+        overflow-wrap: break-word;  /* Ensure long text will wrap and not overflow */
+        word-wrap: break-word;  /* Older browsers support */
+        text-align: left;  /* Align text to the left */
+        background-color: #ffffff;  /* White background for question box */
+    }
+    
+    .stRadio > label {
+        display: block;
+        color: #4CAF50;
+        margin: 10px 0;
+    }
+    
+    .css-1y0tads {
+        max-width: 100%;
+    }
+    </style>
+    """, 
+    unsafe_allow_html=True
     )
 
     # Display question with border and background
+        # Escape HTML special characters in the question text to avoid unexpected HTML rendering
+    escaped_question = html.escape(question_data['question'])
+
+    # Display question with border and background
     st.markdown(f"""<div class="question-container">
-                    <h2>Question {question_number} of {total_questions}</h2>
-                    {question_data['question']} </div>""", 
-                unsafe_allow_html=True)
+                    <h3>Question {question_number} of {total_questions}</h3>
+                    {escaped_question} 
+                    </div>""", 
+                    unsafe_allow_html=True)
+
 
     # Display options for answers
     selected_option = st.radio("Choose your answer:", question_data["options"], key=f"option_{question_number}")
