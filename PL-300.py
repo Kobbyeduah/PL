@@ -781,7 +781,7 @@ def display_question(question_number):
                 **Explanation:** The most efficient way to update access for the sales manager is by adding them to the correct Azure Active Directory group.
             """,
             "reference": "https://docs.microsoft.com/en-us/power-bi/admin/service-security-rls"
-        },
+        }
     }
 
     # Get the current question data
