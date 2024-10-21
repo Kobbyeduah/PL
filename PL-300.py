@@ -819,8 +819,7 @@ def display_question(question_number):
     # Display question with border and background
     st.markdown(f"""<div class="question-container">
                     <h4>Question {question_number} of {total_questions}</h4>
-                    {question_data['question']}
-                    </div>""", 
+                    {question_data['question']} </div>""", 
                 unsafe_allow_html=True)
 
     # Display options for answers
