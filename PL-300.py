@@ -791,38 +791,32 @@ def display_question(question_number):
     st.progress(question_number / total_questions)
 
     # Custom CSS for question border
+    
     st.markdown(
-        """
-        <style>
-        .question-container {
-            border: 2px solid #4CAF50;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-        </style>
-        """, 
-        unsafe_allow_html=True
+    """
+    <style>
+    .question-container {
+        border: 2px solid #4CAF50;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        max-width: 100%;  /* Limits the width to prevent overflow */
+        box-sizing: border-box; /* Includes padding and border in the element's total width */
+        overflow-x: hidden; /* Hides horizontal overflow */
+    }
+    .stRadio > label {
+        display: block;
+        color: #4CAF50; /* Sets the text color for options */
+        margin: 10px 0; /* Adds space around each option */
+    }
+    .css-1y0tads { /* Targets the container of the radio buttons to adjust width */
+        max-width: 100%; /* Ensures the container does not exceed the viewport width */
+    }
+    </style>
+    """, 
+    unsafe_allow_html=True
     )
-
-    # Custom CSS for styling
-    st.markdown(
-        """
-        <style>
-        .question-container {
-            border: 2px solid #4CAF50;
-            background-color: #f4f4f4;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 10px 0px;
-        }
-        .streamlit-container {
-            margin-top: 50px;
-        }
-        </style>
-        """, 
-        unsafe_allow_html=True
-    )
+    
 
     # Display question with border and background
     st.markdown(f"""<div class="question-container">
