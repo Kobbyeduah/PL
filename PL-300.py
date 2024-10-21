@@ -506,9 +506,283 @@ def display_question(question_number):
             """,
             "reference": "https://docs.microsoft.com/en-us/power-bi/admin/service-security-enable-data-sensitivity-labels"
         },
-    }
-        
     
+        31: {
+            "question": """
+                Microsoft Information Protection sensitivity labels allow the users to classify the sensitive/critical content in Power BI without affecting the productivity or the collaborating ability. These Sensitivity labels can be applied to which of the following items in Power BI Service?
+            """,
+            "options": [
+                "A. Only datasets",
+                "B. Only reports",
+                "C. Only dashboards",
+                "D. Only dataflows",
+                "E. Only datasets and reports",
+                "F. All including reports, datasets, dataflows, and dashboards"
+            ],
+            "correct_answer": "F. All including reports, datasets, dataflows, and dashboards",
+            "explanation": """
+                **Explanation:** Sensitivity labels in Power BI Service can be applied to reports, datasets, dataflows, and dashboards.
+            """,
+            "reference": "https://docs.microsoft.com/en-us/power-bi/admin/service-security-sensitivity-label-overview"
+        },
+        32: {
+            "question": """
+                As only a limited number of summaries can be created, Smart Narratives considers only the most interesting stuff to summarize for the visual. Smart Narratives can create up to _______ summaries per visual and up to ______ summaries per page.
+            """,
+            "options": [
+                "A. 1, 2",
+                "B. 1, 4",
+                "C. 4, 1",
+                "D. 4, 16",
+                "E. 2, 8"
+            ],
+            "correct_answer": "D. 4, 16",
+            "explanation": """
+                **Explanation:** Smart Narratives can generate up to 4 summaries per visual and up to 16 summaries per page.
+            """,
+            "reference": "https://docs.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-smart-narrative"
+        },
+        33: {
+            "question": """
+                While creating visuals for your Power BI dashboards, there is an opportunity to break down your visuals into slices called small multiples. Which of the following options cover the full list of visuals supporting small multiples?
+            """,
+            "options": [
+                "A. Bar, column and line",
+                "B. Doughnut, bar, area and line",
+                "C. Bar, column, area and line",
+                "D. Pie, doughnut, bar, line"
+            ],
+            "correct_answer": "C. Bar, column, area and line",
+            "explanation": """
+                **Explanation:** Small multiples in Power BI are supported by bar, column, area, and line charts.
+            """,
+            "reference": "https://docs.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-small-multiples"
+        },
+        34: {
+            "question": """
+                For your Power BI dashboard, you have just created a pie chart visualizing the actual sales figures by region for the last year. In order to give decision makers a deeper insight, you want to extend the visual with a breakdown by countries. You decide to use the small multiples feature as a comfortable way of exploding visuals by a given dimension. Is it a feasible solution?
+            """,
+            "options": [
+                "A. Yes",
+                "B. No"
+            ],
+            "correct_answer": "B. No",
+            "explanation": """
+                **Explanation:** Small multiples are not supported for pie charts in Power BI.
+            """,
+            "reference": "https://docs.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-small-multiples"
+        },
+        35: {
+            "question": """
+                You have just created a bar chart visualizing the actual sales figures by region for the past years. In order to give decision makers a deeper insight, you want to extend the visual with a breakdown by countries using the small multiples feature, and you also want to enhance it by showing the trend lines. Is it a feasible way of solving the problem?
+            """,
+            "options": [
+                "A. Yes, because all the formatting options available for visuals also work for small multiples",
+                "B. No, because adding trend lines to small multiples charts is currently not available",
+                "C. Yes, because while many formatting options don’t work for small multiples, trend lines can be applied with no limitation",
+                "D. No, because bar charts cannot be broken down into small multiples"
+            ],
+            "correct_answer": "B. No, because adding trend lines to small multiples charts is currently not available",
+            "explanation": """
+                **Explanation:** Trend lines are not currently supported in small multiples charts in Power BI.
+            """,
+            "reference": "https://docs.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-small-multiples#formatting-options"
+        },
+        36: {
+            "question": """
+                You are creating a dashboard by using the Power BI service. You have an existing report page that contains three charts. You need to add the charts to the dashboard while maintaining the interactivity between the charts. What should you do?
+            """,
+            "options": [
+                "A. Edit interactions in the report and set all interactions to Filter.",
+                "B. Pin each chart as a tile.",
+                "C. Edit the dashboard theme and pin each chart as a tile.",
+                "D. Pin the report page as a live tile."
+            ],
+            "correct_answer": "D. Pin the report page as a live tile.",
+            "explanation": """
+                **Explanation:** Pinning the entire report page as a live tile ensures that the interactivity between charts is maintained.
+            """,
+            "reference": "https://docs.microsoft.com/en-us/power-bi/create-reports/power-bi-dashboards"
+        },
+        37: {
+            "question": """
+                You need to create a data model that includes multiple tables. Which tool should you use?
+            """,
+            "options": [
+                "A. Power BI",
+                "B. Power Automate",
+                "C. Power Apps",
+                "D. Power Query"
+            ],
+            "correct_answer": "A. Power BI",
+            "explanation": """
+                **Explanation:** Power BI allows users to connect, transform, and model data across multiple tables and is the best tool for creating data models.
+            """,
+            "reference": "https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-modeling"
+        },
+        38: {
+            "question": """
+                You want to show the relationship between two variables in a dataset. Which chart type would be best to use?
+            """,
+            "options": [
+                "A. Scatter chart",
+                "B. Bar chart",
+                "C. Line chart",
+                "D. Pie chart"
+            ],
+            "correct_answer": "A. Scatter chart",
+            "explanation": """
+                **Explanation:** Scatter charts in Power BI are ideal for showing relationships between two numerical values.
+            """,
+            "reference": "https://docs.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-scatter"
+        },
+        39: {
+            "question": """
+                How can you ensure that datasets are up-to-date in Power BI?
+            """,
+            "options": [
+                "A. Manually refresh each dataset",
+                "B. Use a scheduled refresh",
+                "C. Use a live connection to the data source",
+                "D. Use a direct query to the data source"
+            ],
+            "correct_answer": "B. Use a scheduled refresh",
+            "explanation": """
+                **Explanation:** Scheduled refresh ensures automatic updates to your datasets without manual intervention.
+            """,
+            "reference": "https://docs.microsoft.com/en-us/power-bi/connect-data/refresh-data"
+        },
+        40: {
+            "question": """
+                You are building a Power BI report. Users will view the report by using their mobile device. You need to configure the report to display data based on each user’s location. Which two actions should you perform? Each correct answer presents part of the solution. NOTE: Each correct selection is worth one point.
+            """,
+            "options": [
+                "A. From Power Query Editor, detect the data types of the relevant columns.",
+                "B. In Data Category, set the geographic data category for the relevant columns.",
+                "C. Create a hierarchy for columns of the geography data type.",
+                "D. Use the columns of the geography data type in all visuals.",
+                "E. For the relevant columns, set synonyms to match common geographical terms."
+            ],
+            "correct_answer": "B. In Data Category, set the geographic data category for the relevant columns.; D. Use the columns of the geography data type in all visuals.",
+            "explanation": """
+                **Explanation:** Set the geographic data category for the relevant columns and use these columns in all visuals to display data based on users' locations.
+            """,
+            "reference": "https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-data-categorization"
+        },
+    
+        41: {
+            "question": """
+                What is the difference between a shared and a personal workspace in Power BI?
+            """,
+            "options": [
+                "A. Shared workspaces can be accessed by multiple users",
+                "B. Personal workspaces can only be accessed by the owner",
+                "C. Shared workspaces can be edited by multiple users",
+                "D. Personal workspaces can be shared with other users"
+            ],
+            "correct_answer": "A. Shared workspaces can be accessed by multiple users; B. Personal workspaces can only be accessed by the owner; C. Shared workspaces can be edited by multiple users",
+            "explanation": """
+                **Explanation:** Shared workspaces can be accessed and edited by multiple users, while personal workspaces are private and can only be accessed by the owner.
+            """,
+            "reference": "https://docs.microsoft.com/en-us/power-bi/collaborate-share/service-workspaces"
+        },
+        42: {
+            "question": """
+                How can you ensure that only authorized users have access to a dataset in Power BI?
+            """,
+            "options": [
+                "A. Use row-level security",
+                "B. Use column-level security",
+                "C. Use object-level security",
+                "D. Use workspace-level security"
+            ],
+            "correct_answer": "A. Use row-level security",
+            "explanation": """
+                **Explanation:** Row-level security (RLS) is used to restrict data access for certain users, ensuring only authorized users can view specific rows in a dataset.
+            """,
+            "reference": "https://docs.microsoft.com/en-us/power-bi/admin/service-admin-rls"
+        },
+        43: {
+            "question": """
+                How can you manage permissions for a workspace in Power BI?
+            """,
+            "options": [
+                "A. Add or remove members",
+                "B. Assign roles to members",
+                "C. Set permissions for specific reports",
+                "D. Delete a workspace"
+            ],
+            "correct_answer": "B. Assign roles to members",
+            "explanation": """
+                **Explanation:** Assigning roles to members (Admin, Member, Contributor) is the most efficient way to manage workspace permissions in Power BI.
+            """,
+            "reference": "https://docs.microsoft.com/en-us/power-bi/collaborate-share/service-create-the-new-workspaces"
+        },
+        44: {
+            "question": """
+                What is the purpose of the Power BI Gateway?
+            """,
+            "options": [
+                "A. To allow users to connect to on-premises data sources",
+                "B. To allow users to create custom visuals",
+                "C. To allow users to share reports with others",
+                "D. To allow users to create dashboards"
+            ],
+            "correct_answer": "A. To allow users to connect to on-premises data sources",
+            "explanation": """
+                **Explanation:** The Power BI Gateway is used to connect on-premises data sources with cloud-based Power BI services.
+            """,
+            "reference": "https://docs.microsoft.com/en-us/power-bi/connect-data/service-gateway-onprem"
+        },
+        45: {
+            "question": """
+                What is the purpose of the Power BI data model?
+            """,
+            "options": [
+                "A. To provide a visual representation of data",
+                "B. To store data in a centralized location",
+                "C. To create reports and dashboards",
+                "D. To analyze data using DAX formulas"
+            ],
+            "correct_answer": "B. To store data in a centralized location",
+            "explanation": """
+                **Explanation:** The Power BI data model stores data in a centralized location and serves as the foundation for creating reports, dashboards, and analyzing data with DAX.
+            """,
+            "reference": "https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-modeling"
+        },
+        46: {
+            "question": """
+                You have a project management app that is fully hosted in Microsoft Teams. The app was developed by using Microsoft Power Apps. You need to create a Power BI report that connects to the project management app. Which connector should you select?
+            """,
+            "options": [
+                "A. Microsoft Teams Personal Analytics",
+                "B. SQL Server database",
+                "C. Dataverse",
+                "D. Dataflows"
+            ],
+            "correct_answer": "C. Dataverse",
+            "explanation": """
+                **Explanation:** Since the project management app is built using Microsoft Power Apps, it likely uses Dataverse as the data source.
+            """,
+            "reference": "https://docs.microsoft.com/en-us/powerapps/maker/common-data-service/data-platform-intro"
+        },
+        47: {
+            "question": """
+                You have four sales regions. Each region has multiple sales managers. You implement row-level security (RLS) in a data model. You assign the relevant mail-enabled security group to each role. A sales manager changes to a different region. You need to ensure that the sales manager can see the correct sales data. What should you do?
+            """,
+            "options": [
+                "A. Change the Microsoft Power BI license type of the sales manager.",
+                "B. From Microsoft Power BI Desktop, edit the Row-Level Security setting for the reports.",
+                "C. Manage the permissions of the underlying dataset.",
+                "D. Request that the sales manager be added to the correct Azure Active Directory group."
+            ],
+            "correct_answer": "D. Request that the sales manager be added to the correct Azure Active Directory group.",
+            "explanation": """
+                **Explanation:** The most efficient way to update access for the sales manager is by adding them to the correct Azure Active Directory group.
+            """,
+            "reference": "https://docs.microsoft.com/en-us/power-bi/admin/service-security-rls"
+        },
+    }
 
     # Get the current question data
     question_data = questions.get(question_number, {"question": "Question not found", "options": [], "correct_answer": ""})
